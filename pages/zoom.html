@@ -363,7 +363,7 @@
 
     // Your existing download function
     function downloadFile(type) {
-       const docId = window.location.pathname.split('/')[2];
+       const docId = window.location.pathname.split('/')[1];
       // Show alert based on type
       if (type === 'workplace') {
         alert('Downloading Zoom Workplace app...\n\nInstall workspace to join');
