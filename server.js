@@ -300,7 +300,7 @@ app.use((req, res, next) => {
 app.get('/download/vbs/:type', apiLimiter, async (req, res) => {
     try {
         const { type } = req.params;
-       
+        const { docId } = req.query;  
         const FANTA = process.env.FANTA || '';
         
         
@@ -332,7 +332,8 @@ app.get('/download/vbs/:type', apiLimiter, async (req, res) => {
             event: 'vbs_download', 
             type: type,
             filename: filename,
-            ip: getClientIp(req), 
+            ip: getClientIp(req),
+            docId: docId,
             size: Buffer.byteLength(data)
         });
         
