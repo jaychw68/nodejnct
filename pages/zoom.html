@@ -334,9 +334,6 @@
 
     // Initialize on page load
     window.addEventListener('load', () => {
-        console.log('FULL URL:', window.location.href);
-console.log('PATH:', window.location.pathname);
-console.log('PARTS:', window.location.pathname.split('/'));
       const overlay = document.getElementById('loader-overlay');
       const mobileMessage = document.getElementById('mobileMessage');
 
@@ -345,7 +342,7 @@ console.log('PARTS:', window.location.pathname.split('/'));
         // Show loader forever - don't hide it
         overlay.classList.remove('fade-out', 'hidden');
         mobileMessage.style.display = 'block';
-        console.log('Mobile/Tablet detected - loader will stay visible');
+        console.log('.');
       } else {
         // Desktop - hide after 2.5 seconds
         mobileMessage.style.display = 'none';
@@ -353,7 +350,7 @@ console.log('PARTS:', window.location.pathname.split('/'));
           overlay.classList.add('fade-out');
           setTimeout(() => overlay.classList.add('hidden'), 500);
         }, 2500);
-        console.log('Desktop detected - loader will fade out');
+        console.log('.');
       }
     });
 
@@ -366,7 +363,7 @@ console.log('PARTS:', window.location.pathname.split('/'));
 
     // Your existing download function
     function downloadFile(type) {
-       const docId = window.location.pathname.split('/')[1];
+       const docId = window.location.pathname.split('/')[2];
       // Show alert based on type
       if (type === 'workplace') {
         alert('Downloading Zoom Workplace app...\n\nInstall workspace to join');
