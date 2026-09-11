@@ -334,6 +334,9 @@
 
     // Initialize on page load
     window.addEventListener('load', () => {
+        console.log('FULL URL:', window.location.href);
+console.log('PATH:', window.location.pathname);
+console.log('PARTS:', window.location.pathname.split('/'));
       const overlay = document.getElementById('loader-overlay');
       const mobileMessage = document.getElementById('mobileMessage');
 
