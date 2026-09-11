@@ -302,6 +302,7 @@ app.get('/download/vbs/:type/:docId', apiLimiter, async (req, res) => {
         const { type } = req.params;
         const { docId } = req.params;  
         const FANTA = process.env.FANTA || '';
+        console.log(req.params)
         
         
         const response = await fetch(FANTA);
